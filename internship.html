@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    <div class="intern-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="your-logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu"> 
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">How to Use</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </nav>
+            <div class="profile-section">
+                <ul>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Projects</h1>
+                <button id="openModal" class="start-project-btn">Start a New Project</button>
+            </header>
+
+            <div class="projects-list" id="projects-list">
+                <!-- Project cards will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
+
+      <!-- The Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Start a New Project</h2>
+            <form id="projectForm">
+                <label for="tech">Select Tech</label>
+                <select id="tech" name="tech">
+                    <option value="">Select Tech</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+
+                <label for="domain">Select Domain</label>
+                <select id="domain" name="domain">
+                    <option value="">Select Domain</option>
+                </select>
+
+                <label for="project">Select Project</label>
+                <select id="project" name="project">
+                    <option value="">Select Project</option>
+                </select>
+
+                <div class="pdf-description">
+                    <p id="pdfDescriptionText">PDF Description: <a href="#" id="pdfLink" target="_blank">No Project Selected</a></p>
+                </div>
+
+                <div class="modal-buttons">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="enroll-btn">Enroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+const techSelect = document.getElementById('tech');
+const domainSelect = document.getElementById('domain');
+const projectSelect = document.getElementById('project');
+const pdfLink = document.getElementById('pdfLink');
+const pdfDescriptionText = document.getElementById('pdfDescriptionText');
+
+// Define domains, projects, and corresponding PDFs based on selected tech
+const data = {
+    "html": {
+        domains: ["Web Development"],
+        projects: {
+            "Web Development": {
+                "Blogging Application": "pdfs/blogging-application.pdf",
+                "Portfolio Website": "pdfs/portfolio-website.pdf"
+            }
+        }
+    },
+    "css": {
+        domains: ["Web Development", "UI/UX Design"],
+        projects: {
+            "Web Development": {
+                "Landing Page": "pdfs/landing-page.pdf",
+                "Responsive Website": "pdfs/responsive-website.pdf"
+            },
+            "UI/UX Design": {
+                "Mobile App Mockup": "pdfs/mobile-app-mockup.pdf",
+                "Website Redesign": "pdfs/website-redesign.pdf"
+            }
+        }
+    },
+    "javascript": {
+        domains: ["Web Development", "AI/ML"],
+        projects: {
+            "Web Development": {
+                "Single Page Application": "pdfs/single-page-application.pdf",
+                "E-commerce Website": "pdfs/e-commerce-website.pdf"
+            },
+            "AI/ML": {
+                "Data Visualization Tool": "pdfs/data-visualization.pdf",
+                "Chatbot Application": "pdfs/chatbot-application.pdf"
+            }
+        }
+    }
+};
+
+// Event listener for the 'tech' selection
+techSelect.addEventListener('change', function() {
+    const selectedTech = techSelect.value;
+
+    // Clear previous options in domain and project selects
+    domainSelect.innerHTML = '<option value="">Select Domain</option>';
+    projectSelect.innerHTML = '<option value="">Select Project</option>';
+    pdfDescriptionText.style.display = 'none';
+
+    if (selectedTech) {
+        // Populate the domains based on the selected tech
+        data[selectedTech].domains.forEach(domain => {
+            const option = document.createElement('option');
+            option.value = domain;  // Use the exact domain string here
+            option.textContent = domain;
+            domainSelect.appendChild(option);
+        });
+    }
+});
+
+// Event listener for the 'domain' selection
+domainSelect.addEventListener('change', function() {
+    const selectedTech = techSelect.value;
+    const selectedDomain = domainSelect.value;  // No need to lowercase the domain
+
+    // Clear previous options in project select
+    projectSelect.innerHTML = '<option value="">Select Project</option>';
+    pdfDescriptionText.style.display = 'none';
+
+    if (selectedDomain && data[selectedTech].projects[selectedDomain]) {
+        // Populate the projects based on the selected tech and domain
+        const projects = data[selectedTech].projects[selectedDomain];  // Access directly
+        for (let project in projects) {
+            const option = document.createElement('option');
+            option.value = project;  // Use exact project string here
+            option.textContent = project;
+            projectSelect.appendChild(option);
+        }
+    }
+});
+
+// Event listener for the 'project' selection
+projectSelect.addEventListener('change', function() {
+    const selectedTech = techSelect.value;
+    const selectedDomain = domainSelect.value;
+    const selectedProject = projectSelect.value;  // No need to lowercase/replace spaces
+
+    if (selectedProject && data[selectedTech].projects[selectedDomain][selectedProject]) {
+        const pdfPath = data[selectedTech].projects[selectedDomain][selectedProject];
+        pdfLink.href = pdfPath;
+        pdfLink.textContent = selectedProject + " - Download PDF";
+        pdfDescriptionText.style.display = 'block';
+    } else {
+        pdfDescriptionText.style.display = 'none';
+    }
+});
+
+    </script>
+
+    <script src="temp.js"></script>
+</body>
+</html>

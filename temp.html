@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+<body>
+    <div class="intern-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="your-logo.png" alt="Logo">
+            </div>
+            <nav class="nav-menu"> 
+                <ul>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="#">How to Use</a></li>
+                    <li><a href="#">Terms and Conditions</a></li>
+                </ul>
+            </nav>
+            <div class="profile-section">
+                <ul>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="dashboard-header">
+                <h1>Projects</h1>
+                <button id="openModal" class="start-project-btn">Start a New Project</button>
+            </header>
+
+            <div class="projects-list" id="projects-list">
+                <!-- Project cards will be dynamically inserted here -->
+            </div>
+        </main>
+    </div>
+
+    <!-- The Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Start a New Project</h2>
+            <form id="projectForm">
+                <label for="tech">Select Tech</label>
+                <select id="tech" name="tech">
+                    <option value="">Select Tech</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+
+                <label for="domain">Select Domain</label>
+                <select id="domain" name="domain">
+                    <option value="">Select Domain</option>
+                    <option value="web">Web Development</option>
+                    <option value="data">Data Science</option>
+                    <option value="ai">AI/ML</option>
+                </select>
+
+                <label for="project">Select Project</label>
+                <select id="project" name="project">
+                    <option value="">Select Project</option>
+                    <option value="blogging">Blogging Application</option>
+                    <option value="video">Video Streaming</option>
+                </select>
+
+                <div class="modal-buttons">
+                    <button type="button" class="cancel-btn">Cancel</button>
+                    <button type="submit" class="enroll-btn">Enroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="temp.js"></script>
+</body>
+</html>

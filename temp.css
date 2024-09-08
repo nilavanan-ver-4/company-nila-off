@@ -1,0 +1,229 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+/*Internship styles*/
+.intern-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  .sidebar {
+    width:;
+    background-color: #333;
+    color: white;
+    padding: 0px;
+  }
+  
+  /* Logo */
+  .sidebar .logo img {
+    width: 80%; /* Adjust width for better alignment */
+    margin: 0 auto 30px; /* Center the logo and add space below */
+    display: block;
+  }
+  
+/* Navigation Menu */
+
+.nav-menu ul {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    list-style: none;
+    padding: 0;
+    display:list-item;
+  }
+  
+  .nav-menu ul li {
+    margin: 0; 
+    background-color: #003f7f; /* Keep the blue shade */
+    padding: 15px 20px; /* Add padding to make it more clickable */
+    font-size: large; /* Medium-sized font */
+    display:flexbox;
+    align-items: center; /* Align text vertically */
+    justify-content: space-between; /* Spread content */
+    transition: background-color 0.3s ease; /* Smooth hover transition */
+    border-radius: 5px; /* Slight rounding of corners */
+    margin-bottom: 0px; /* Add space between items */
+  }
+  
+  /* Hover effect for menu items */
+  .nav-menu ul li:hover {
+    background-color: #005cbf; /* Slightly lighter blue on hover */
+    cursor: pointer; /* Show pointer on hover */
+  }
+  
+  /* Links inside navigation menu */
+  .nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: medium; /* Standard font size */
+    display: block;
+    width: 100%;
+  }
+  
+  /* Profile Section */
+  .profile-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center profile section */
+  }
+  
+  .profile-section ul li a {
+    color: #df9d0f; /* Use a vibrant red */
+    text-decoration: none;
+    margin-top: 10px; /* Space between profile items */
+    font-weight: bold;
+    font-size: x-large;
+    transition: color 0.3s ease; /* Smooth hover color transition */
+  }
+  
+  .profile-section ul li a:hover {
+    color: #fd1e05; /* Darker red on hover */
+  }
+  
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+
+/* Button to open modal */
+.start-project-btn {
+    background-color: #ff4081;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .start-project-btn:hover {
+    background-color: #ff0066;
+  }
+  
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    position: relative;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Buttons inside modal */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .cancel-btn, .enroll-btn {
+    background-color: #ccc;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #999;
+  }
+  
+  .enroll-btn {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .enroll-btn:hover {
+    background-color: #45a049;
+  }
+
+/* Project Cards Styles */
+.projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 20px);
+    box-sizing: border-box;
+}
+
+.status-badge {
+    background-color: #ff4081;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.project-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.view-project-btn {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4CAF50;
+    text-decoration: none;
+    font-weight: bold;
+}
