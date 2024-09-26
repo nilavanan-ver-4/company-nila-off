@@ -13,13 +13,13 @@ body {
 }
 
 .header {
-  display: flex;
+/*   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #007bff;
+ 
   color: #fff;
-}
+ */}
 
 .header .logo img {
   height: 50px;
@@ -38,7 +38,7 @@ body {
   font-size: 14px;
 }
 .header .search-bar i {
-  background-color: #003f7f;
+  /* background-color: #003f7f; */
   margin-right: 10px;
   padding: 11px;
   border: none;
@@ -361,8 +361,9 @@ body {
 
 
 nav {
-   
+  background: #fff;
     padding: 10px 0;
+  
 }
 
 nav ul {
@@ -370,7 +371,7 @@ nav ul {
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 nav ul li {
@@ -384,7 +385,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #f89719;
+    color: #0529f8;
 }
 
 section {
@@ -815,7 +816,41 @@ h1 {
 .account-nav ul li a:hover {
     color: #0056b3;
 }
+/* 
+Flowing nav bar  */
 
+.flowing-text-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: #1285f1;  /* Dark background for better glow visibility */
+}
+
+/* Glowing flowing text style */
+.flowing-text {
+  display: inline-block;
+  padding-left: 100%;  /* Start off the screen */
+  font-size: 20px;
+  color: #fff;  /* White text color */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 
+               0 0 20px rgba(255, 255, 255, 0.8), 
+               0 0 30px #ff0000,  /* Red glow */
+               0 0 40px #ff0000, 
+               0 0 50px #ff0000;
+  animation: flow 30s linear infinite;
+}
+
+/* Animation for flowing text */
+@keyframes flow {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
 /* Content */
 .account-content {
     flex: 3;
@@ -906,13 +941,22 @@ h1 {
 }
 
 /* Logo */
-.sidebar .logo img {
-  width: 80%; /* Adjust width for better alignment */
-  margin: 0 auto 30px; /* Center the logo and add space below */
+.logo img {
+  width: 100%; /* Adjust width for better alignment */
+   /* Center the logo and add space below */
   display: block;
+  padding: 5px ;
 }
 
 /* Navigation Menu */
+nav {
+  display: flex;
+  justify-content: space-between;  /* Space between logo and navigation items */
+  align-items: center;  /* Vertically center items */
+  padding: 0px 0px;  /* Add some padding around the nav */
+  /* background-color: #12b7e0;  /* Optional: Set a background color */ */
+  color: #ffffff;  /* Optional: Set text color */
+}
 
 .nav-menu ul {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

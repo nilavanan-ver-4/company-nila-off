@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company</title>
+    <link rel="stylesheet" href="intern.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        
+<!--         <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <i class="fas fa-search"></i> 
+        </div> -->
+        <!-- <div class="account">
+            <a href="#client-portal"><i class="fas fa-user-circle"></i> Account</a>
+        </div> -->
+    
+        <nav>
+            <div class="logo">
+                <img src="logo/spiEduc - Copy.jpg" alt="Company Logo">
+            </div>
+            <ul>
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="index.html"><i class="fas fa-info-circle"></i> About Us</a></li>
+                <li><a href="index.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+               <!-- <li><a href="#solutions"><i class="fas fa-lightbulb"></i> Solutions</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Portfolio</a></li>
+                <li><a href="#blog"><i class="fas fa-blog"></i> Blog</a></li> -->
+                <li><a href="index.html"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="intern.html"><i class="fas fa-user-tie"></i> Internship</a></li> 
+                <!-- <li><a href="#resources"><i class="fas fa-book"></i> Resources</a></li> -->
+                <!-- <li><a href="#client-portal"><i class="fas fa-user-circle"></i> Client Portal</a></li> -->
+            </ul>
+        </nav>
+    </header>
+    <div class="flowing-text-container">
+        <span class="flowing-text">This is a glowing flowing text animation using HTML, CSS, and JavaScript!</span>
+      </div>
+    <div class="parent">
+    <main class="main-content1" id="1">
+        <header class="dashboard-header">
+            <button id="openModal" class="start-project-btn">Start a New Project</button>
+       
+    </main>
+
+    <!-- The Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="h2">Start a New Project</h2>
+            <form id="projectForm">
+                <label class="label" for="tech">Select Tech</label>
+                <select class="select" id="tech" name="tech">
+                    <option value="">Select Tech</option>
+                    <option value="html">HTML</option>
+                    <option value="css">CSS</option>
+                    <option value="javascript">JavaScript</option>
+                </select>
+
+                <label class="label" for="domain">Select Domain</label>
+                <select  class="select" id="domain" name="domain">
+                    <option value="">Select Domain</option>
+                </select>
+
+                <label class="label" for="project">Select Project</label>
+                <select class="select" id="project" name="project">
+                    <option value="">Select Project</option>
+                </select>
+                <br>
+                <div class="pdf-description">
+                    <p id="pdfDescriptionText">PDF Description: <a href="#" id="pdfLink" target="_blank">No Project Selected</a></p>
+                </div>
+                <br>
+
+                <!-- New Apply button -->
+                <div class="apply-link" style="display: none;">
+                 <p>Apply Now :  <a href="#" id="applyLink" class="apply-btn" target="_blank">Click here</a> </p>
+                </div>
+                <br>
+                <div class="modal-buttons1">
+                    <button type="button" class="cancel-btn1">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const techSelect = document.getElementById('tech');
+        const domainSelect = document.getElementById('domain');
+        const projectSelect = document.getElementById('project');
+        const pdfLink = document.getElementById('pdfLink');
+        const pdfDescriptionText = document.getElementById('pdfDescriptionText');
+        const applyLink = document.getElementById('applyLink');
+        const applyLinkContainer = document.querySelector('.apply-link');
+
+        // Define domains, projects, corresponding PDFs, and apply links based on selected tech
+        const data = {
+            "html": {
+                domains: ["Web Development"],
+                projects: {
+                    "Web Development": {
+                        "Blogging Application": { pdf: "pdfs/blogging-application.pdf", apply: "https://apply-for-blogging.com" },
+                        "Portfolio Website": { pdf: "pdfs/portfolio-website.pdf", apply: "https://apply-for-portfolio.com" }
+                    }
+                }
+            },
+            "css": {
+                domains: ["Web Development", "UI/UX Design"],
+                projects: {
+                    "Web Development": {
+                        "Landing Page": { pdf: "pdfs/landing-page.pdf", apply: "https://apply-for-landingpage.com" },
+                        "Responsive Website": { pdf: "pdfs/responsive-website.pdf", apply: "https://apply-for-responsive.com" }
+                    },
+                    "UI/UX Design": {
+                        "Mobile App Mockup": { pdf: "pdfs/mobile-app-mockup.pdf", apply: "https://apply-for-mobileapp.com" },
+                        "Website Redesign": { pdf: "pdfs/website-redesign.pdf", apply: "https://apply-for-redesign.com" }
+                    }
+                }
+            },
+            "javascript": {
+                domains: ["Web Development", "AI/ML"],
+                projects: {
+                    "Web Development": {
+                        "Single Page Application": { pdf: "pdfs/single-page-application.pdf", apply: "https://apply-for-spa.com" },
+                        "E-commerce Website": { pdf: "pdfs/e-commerce-website.pdf", apply: "https://apply-for-ecommerce.com" }
+                    },
+                    "AI/ML": {
+                        "Data Visualization Tool": { pdf: "pdfs/data-visualization.pdf", apply: "https://apply-for-dataviz.com" },
+                        "Chatbot Application": { pdf: "pdfs/chatbot-application.pdf", apply: "https://apply-for-chatbot.com" }
+                    }
+                }
+            }
+        };
+
+        // Event listener for the 'tech' selection
+        techSelect.addEventListener('change', function() {
+            const selectedTech = techSelect.value;
+
+            // Clear previous options in domain and project selects
+            domainSelect.innerHTML = '<option value="">Select Domain</option>';
+            projectSelect.innerHTML = '<option value="">Select Project</option>';
+            pdfDescriptionText.style.display = 'none';
+            applyLinkContainer.style.display = 'none';
+
+            if (selectedTech) {
+                // Populate the domains based on the selected tech
+                data[selectedTech].domains.forEach(domain => {
+                    const option = document.createElement('option');
+                    option.value = domain;
+                    option.textContent = domain;
+                    domainSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Event listener for the 'domain' selection
+        domainSelect.addEventListener('change', function() {
+            const selectedTech = techSelect.value;
+            const selectedDomain = domainSelect.value;
+
+            // Clear previous options in project select
+            projectSelect.innerHTML = '<option value="">Select Project</option>';
+            pdfDescriptionText.style.display = 'none';
+            applyLinkContainer.style.display = 'none';
+
+            if (selectedDomain && data[selectedTech].projects[selectedDomain]) {
+                // Populate the projects based on the selected tech and domain
+                const projects = data[selectedTech].projects[selectedDomain];
+                for (let project in projects) {
+                    const option = document.createElement('option');
+                    option.value = project;
+                    option.textContent = project;
+                    projectSelect.appendChild(option);
+                }
+            }
+        });
+
+        // Event listener for the 'project' selection
+        projectSelect.addEventListener('change', function() {
+            const selectedTech = techSelect.value;
+            const selectedDomain = domainSelect.value;
+            const selectedProject = projectSelect.value;
+
+            if (selectedProject && data[selectedTech].projects[selectedDomain][selectedProject]) {
+                const projectDetails = data[selectedTech].projects[selectedDomain][selectedProject];
+                const pdfPath = projectDetails.pdf;
+                const applyUrl = projectDetails.apply;
+
+                // Update the PDF link
+                pdfLink.href = pdfPath;
+                pdfLink.textContent = selectedProject + " - Download PDF";
+                pdfDescriptionText.style.display = 'block';
+
+                // Update and show the apply link
+                applyLink.href = applyUrl;
+                applyLinkContainer.style.display = 'block';
+            } else {
+                pdfDescriptionText.style.display = 'none';
+                applyLinkContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+<!-- <img src="logo/spieduc circle.jpg" style="height: 100px; width: 100px; "> -->
+
+ <!-- Main Content for Dashboard -->
+ <main class="main-content2" id="2">
+    <header class="dashboard-header">
+        <button id="openSubmissionModal" class="start-project-btn">Submit a Project</button>
+    </header>
+</main>
+
+<!-- The Modal for Submitting a Project -->
+<div id="submissionModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 class="h2">Submit Your Project</h2>
+        <form id="submissionForm">
+            <label class="label" for="submissionTech">Select Tech</label>
+            <select class="select" id="submissionTech" name="tech">
+                <option value="">Select Tech</option>
+                <option value="html">HTML</option>
+                <option value="css">CSS</option>
+                <option value="javascript">JavaScript</option>
+            </select>
+
+            <label class="label" for="submissionDomain">Select Domain</label>
+            <select class="select" id="submissionDomain" name="domain">
+                <option value="">Select Domain</option>
+            </select>
+
+            <label class="label" for="submissionProject">Select Project</label>
+            <select class="select" id="submissionProject" name="project">
+                <option value="">Select Project</option>
+            </select>
+            <br>
+            <!-- Submit Button -->
+            <div class="submit-link" style="display: none;">
+                <p>Submit Project: <a href="#" id="submitLink" class="submit-btn" target="_blank">Click here to Submit</a></p>
+            </div>
+            <br>
+            <div class="modal-buttons1">
+                <button type="button" class="cancel-btn1">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const submissionModal = document.getElementById("submissionModal");
+    const openSubmissionModalBtn = document.getElementById("openSubmissionModal");
+    const closeSubmissionModalBtn = submissionModal.querySelector('.close');
+    const cancelSubmissionBtn = submissionModal.querySelector('.cancel-btn1');
+    
+    const submissionTechSelect = document.getElementById('submissionTech');
+    const submissionDomainSelect = document.getElementById('submissionDomain');
+    const submissionProjectSelect = document.getElementById('submissionProject');
+    const submitLink = document.getElementById('submitLink');
+    const submitLinkContainer = document.querySelector('.submit-link');
+
+    // Define domains and projects based on selected tech for submission modal
+    const submissionData = {
+        "html": {
+            domains: ["Web Development"],
+            projects: {
+                "Web Development": ["Blogging Application", "Portfolio Website"]
+            }
+        },
+        "css": {
+            domains: ["Web Development", "UI/UX Design"],
+            projects: {
+                "Web Development": ["Landing Page", "Responsive Website"],
+                "UI/UX Design": ["Mobile App Mockup", "Website Redesign"]
+            }
+        },
+        "javascript": {
+            domains: ["Web Development", "AI/ML"],
+            projects: {
+                "Web Development": ["Single Page Application", "E-commerce Website"],
+                "AI/ML": ["Data Visualization Tool", "Chatbot Application"]
+            }
+        }
+    };
+
+    // Open the submission modal
+    openSubmissionModalBtn.addEventListener("click", function() {
+        submissionModal.style.display = "block";
+    });
+
+    // Close the submission modal and reset form
+    closeSubmissionModalBtn.addEventListener("click", function() {
+        closeSubmissionModalAndResetForm();
+    });
+
+    cancelSubmissionBtn.addEventListener("click", function() {
+        closeSubmissionModalAndResetForm();
+    });
+
+    // Close the modal if user clicks outside it
+    window.addEventListener("click", function(event) {
+        if (event.target == submissionModal) {
+            closeSubmissionModalAndResetForm();
+        }
+    });
+
+    // Function to close the modal and reset the submission form
+    function closeSubmissionModalAndResetForm() {
+        submissionModal.style.display = "none";
+        resetSubmissionForm();
+    }
+
+    // Function to reset the submission form
+    function resetSubmissionForm() {
+        document.getElementById("submissionForm").reset(); // Reset all form fields
+        submitLinkContainer.style.display = 'none'; // Hide the submit link when form is reset
+        submitLink.href = '#'; // Reset the submit link
+        submitLink.textContent = 'No Project Selected'; // Reset the description text
+    }
+
+    // Event listener for the 'tech' selection in submission form
+    submissionTechSelect.addEventListener('change', function() {
+        const selectedTech = submissionTechSelect.value;
+
+        // Clear previous options in domain and project selects
+        submissionDomainSelect.innerHTML = '<option value="">Select Domain</option>';
+        submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
+        submitLinkContainer.style.display = 'none';
+
+        if (selectedTech) {
+            // Populate the domains based on the selected tech
+            submissionData[selectedTech].domains.forEach(domain => {
+                const option = document.createElement('option');
+                option.value = domain;
+                option.textContent = domain;
+                submissionDomainSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Event listener for the 'domain' selection in submission form
+    submissionDomainSelect.addEventListener('change', function() {
+        const selectedTech = submissionTechSelect.value;
+        const selectedDomain = submissionDomainSelect.value;
+
+        // Clear previous options in project select
+        submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
+        submitLinkContainer.style.display = 'none';
+
+        if (selectedDomain && submissionData[selectedTech].projects[selectedDomain]) {
+            // Populate the projects based on the selected tech and domain
+            submissionData[selectedTech].projects[selectedDomain].forEach(project => {
+                const option = document.createElement('option');
+                option.value = project;
+                option.textContent = project;
+                submissionProjectSelect.appendChild(option);
+            });
+        }
+    });
+
+    // Event listener for the 'project' selection in submission form
+    submissionProjectSelect.addEventListener('change', function() {
+        const selectedProject = submissionProjectSelect.value;
+
+        if (selectedProject) {
+            submitLink.href = `/submit/${selectedProject.toLowerCase().replace(/ /g, "-")}`; // Construct dynamic submit link
+            submitLink.textContent = `Submit ${selectedProject}`;
+            submitLinkContainer.style.display = 'block'; // Show submit link
+        } else {
+            submitLinkContainer.style.display = 'none';
+        }
+    });
+
+</script>
+</div>
+    <script src="intern.js"></script>
+</body>
+</html>
