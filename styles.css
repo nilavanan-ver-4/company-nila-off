@@ -13,13 +13,10 @@ body {
 }
 
 .header {
-/*   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
- 
-  color: #fff;
- */}
+  position: fixed;
+  width: 100%;
+  z-index: 200;
+ }
 
 .header .logo img {
   height: 50px;
@@ -64,6 +61,14 @@ body {
 }
 
 
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
 
 
 @keyframes disco {
@@ -363,6 +368,8 @@ body {
 nav {
   background: #fff;
     padding: 10px 0;
+
+    
   
 }
 
@@ -417,20 +424,22 @@ section p {
   justify-content: center;
 }
 /* Banner Styles */
+
 .banner {
-  background-image: url('Backgrounds/math.jpg');
+/*  /*  background-image: url('Backgrounds/math.jpg'); 
+ background-color: white;
   background-size: cover;
   background-position: center;
-  background-blend-mode:lighten;
+  background-blend-mode:lighten; */
 
   height: 400px;
-  width: 75%;
-  margin-top:30px ;
+  width: 100%;
+  margin-top:110px ;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  color: #fff;
+  color: #e42a2a;
   text-align: center;
 }
 
@@ -441,14 +450,14 @@ section p {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+/*   background-color: rgba(0, 0, 0, 0.5); */
   z-index: 1;
 }
 
 .banner-content {
   position: relative;
   z-index: 2;
-  padding: 20px;
+  padding: 10px;
 }
 
 .banner-content h1 {
@@ -464,13 +473,13 @@ section p {
 /* Business Section */
 .business-section {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 60px;
+  padding: 10px;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.0);
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -508,7 +517,7 @@ section p {
 }
 
 .image-content img {
-   height: 150px;
+   height: 300px;
   border-radius: 10px;
 }
 
@@ -826,9 +835,13 @@ Flowing nav bar  */
   box-sizing: border-box;
   padding: 10px;
   background-color: #1285f1;  /* Dark background for better glow visibility */
+  position: fixed;  /* Fixes the position of the container */
+  top: 70px;  /* Adjust the position relative to the top of the viewport */
+  left: 0;    /* Ensure it stays aligned to the left */
+  display: inline-table;
+  z-index: 100;  /* Ensures it stays above other content */
 }
 
-/* Glowing flowing text style */
 .flowing-text {
   display: inline-block;
   padding-left: 100%;  /* Start off the screen */
@@ -842,7 +855,6 @@ Flowing nav bar  */
   animation: flow 30s linear infinite;
 }
 
-/* Animation for flowing text */
 @keyframes flow {
   0% {
     transform: translateX(100%);
@@ -851,6 +863,7 @@ Flowing nav bar  */
     transform: translateX(-100%);
   }
 }
+
 /* Content */
 .account-content {
     flex: 3;
