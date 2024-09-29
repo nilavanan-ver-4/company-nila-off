@@ -387,7 +387,7 @@ nav ul li {
 
 nav ul li a {
     color: rgb(14, 13, 13);
-    text-decoration: none;
+    text-decoration:none;
     font-size: 18px;
 }
 
@@ -423,52 +423,161 @@ section p {
   display: flex;
   justify-content: center;
 }
-/* Banner Styles */
 
-.banner {
-/*  /*  background-image: url('Backgrounds/math.jpg'); 
- background-color: white;
-  background-size: cover;
-  background-position: center;
-  background-blend-mode:lighten; */
-
-  height: 400px;
-  width: 100%;
-  margin-top:110px ;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: #e42a2a;
-  text-align: center;
+@media screen and (max-width: 640px){
+  nav {
+    flex-direction: column;
+  }
+  nav ul li{
+    margin: 10px;
+  }
+  nav ul li a {
+    color: rgb(14, 13, 13);
+    text-decoration:none;
+    font-size: 10px;
 }
 
-.banner::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+/* Banner Styles */
+
+/* /* General styles for alignment */
+.align {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+  background-color: white;
+} */
+
+/* Banner section */
+.banner {
+  position: relative;
   width: 100%;
-  height: 100%;
-/*   background-color: rgba(0, 0, 0, 0.5); */
-  z-index: 1;
+
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top:;
 }
 
 .banner-content {
-  position: relative;
-  z-index: 2;
-  padding: 10px;
+  z-index: 2; /* Makes sure the content stays on top of the background */
 }
 
-.banner-content h1 {
+.banner h1 {
   font-size: 48px;
-  margin: 0 0 10px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  animation: fadeInDown 1s ease-in-out;
 }
 
-.banner-content p {
-  font-size: 24px;
-  margin: 0;
+.banner p {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 0px;
+  animation: fadeInUp 1.5s ease-in-out;
 }
+
+/* Button styles */
+.btn-primary {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: scale(0.9);
+  }
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .banner {
+      height: 350px; /* Reduce height for smaller screens */
+  }
+
+  .banner h1 {
+      font-size: 28px; /* Further reduce font size */
+  }
+
+  .banner p {
+      font-size: 14px; /* Adjust text size */
+  }
+
+  .btn-primary {
+      padding: 8px 20px; /* Adjust button padding */
+      font-size: 14px; /* Adjust button text size */
+  }
+}
+
+@media (max-width: 480px) {
+  .banner {
+      height: 300px; /* Adjust for very small screens */
+  }
+
+  .banner h1 {
+      font-size: 24px; /* Further reduce font size */
+  }
+
+  .banner p {
+      font-size: 12px; /* Adjust text size */
+  }
+
+  .btn-primary {
+      padding: 6px 18px; /* Adjust button padding */
+      font-size: 12px; /* Adjust button text size */
+  }
+}
+
 
 /* Business Section */
 .business-section {
@@ -520,10 +629,15 @@ section p {
   height: 300px;
   border-radius: 10px;
 }
+@media only screen and  (max-width: 768px){
+  .image-content img{
+    height: 100px;
+  }
+}
 
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and  (max-width: 768px) {
 
     /* For mobile devices */
     body{
@@ -687,7 +801,7 @@ section p {
   }
   
   
-  @media only screen and (max-width: 480px) {
+  @media only screen and (max-width: 768px) {
   
     /* For smaller mobile devices */
   
@@ -863,7 +977,14 @@ Flowing nav bar  */
     transform: translateX(-100%);
   }
 }
+@media screen and (max-width: 640px)
+{
+  .flowing-text-container{
+    padding: 10px;
+    margin-top: 40px;
+  }
 
+}
 /* Content */
 .account-content {
     flex: 3;
@@ -1172,60 +1293,96 @@ select {
 }
 
 
-.container-1{
- 
-}
 .about-section {
-
-  margin-top: 10px;
   padding: 110px 20px;
- 
-  color: #333;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark background for professionalism */
+  color: #fff; /* White text for contrast */
   text-align: center;
+  background-image: url('https://example.com/path/to/your/corporate-background.jpg'); /* Background image */
+  background-size: cover;
 }
 
 .about-section h2 {
-  font-size: 36px;
+  font-size: 42px;
   margin-bottom: 20px;
-  color: #0056b3;
+  color: #201f1f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .about-section p {
   font-size: 18px;
   margin-bottom: 30px;
-  line-height: 1.6;
+  line-height: 1.8;
+  width: 90%;
+  margin: 0 auto; 
+  color: #e23333;
+  background-color: rgb(62, 66, 57); /* Semi-transparent background for text */
+  padding: 20px;
+  border-radius: 10px;
 }
 
 .about-highlights {
   display: flex;
   justify-content: space-around;
+  margin-top: 40px;
+  gap: 30px;
   flex-wrap: wrap;
 }
 
 .highlight {
   width: 30%;
-  background-color: #fff;
   padding: 20px;
-  margin: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent white background */
+  border-radius: 12px;
   text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.highlight:hover {
+  transform: translateY(-10px);
+  box-shadow: 20px 50px 50px rgba(0, 0, 0, 0.2);
 }
 
 .highlight i {
-  font-size: 40px;
+  font-size: 50px;
   margin-bottom: 15px;
-  color: #0056b3;
+  color: #ffcc00;
+  transition: color 0.3s ease-in-out;
+}
+
+.highlight:hover i {
+  color: #ff6600; /* Icon color change on hover */
 }
 
 .highlight h3 {
-  font-size: 24px;
+  font-size: 22px;
   margin-bottom: 10px;
-  color: #333;
+  color: #242121;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .highlight p {
   font-size: 16px;
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 640px) {
+  .about-highlights {
+      flex-direction: column;
+      
+  }
+  .highlight {
+      width: 80%;
+      padding-right:30px;
+      margin-bottom: 20px;
+  }
 }
 
 
