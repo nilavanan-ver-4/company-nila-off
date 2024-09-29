@@ -1387,29 +1387,22 @@ select {
 
 
 .services-section {
-  padding: 50px 20px;
-  padding-top: 110px;
-  background-color: #ffffff;
+  padding: 110px 20px;
+  background-color: rgba(124, 196, 186, 0.411);
   color: #333;
   text-align: center;
-  border-bottom: 4px solid #0056b3; /* Added a bottom border for separation */
 }
 
 .services-section h2 {
   font-size: 36px;
   margin-bottom: 20px;
-  color: #0056b3;
-  text-transform: uppercase; /* Uppercase for a stronger impact */
-  letter-spacing: 1px; /* Spacing between letters */
+  color: #007b5e;
 }
 
 .services-section p {
   font-size: 18px;
   margin-bottom: 30px;
   line-height: 1.6;
-  max-width: 800px; /* Limit width for better readability */
-  margin-left: auto; /* Center the paragraph */
-  margin-right: auto; /* Center the paragraph */
 }
 
 .services-list {
@@ -1420,42 +1413,44 @@ select {
 
 .service {
   width: 30%;
-  background: linear-gradient(135deg, #f4f4f4, #e2e2e2); /* Gradient background */
+  background-color: #f4f4f4;
   padding: 20px;
   margin: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 12px; /* Slightly more rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+  transition: transform 0.3s ease;
 }
 
 .service:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+  transform: translateY(-10px);
 }
 
 .service i {
-  font-size: 50px; /* Slightly larger icon */
+  font-size: 40px;
   margin-bottom: 15px;
-  color: #0056b3;
-  transition: color 0.3s; /* Smooth color change on hover */
-}
-
-.service:hover i {
-  color: #ff7f50; /* Change color on hover */
+  color: #007b5e;
 }
 
 .service h3 {
   font-size: 24px;
   margin-bottom: 10px;
   color: #333;
-  font-weight: 600; /* Bold for emphasis */
 }
 
 .service p {
   font-size: 16px;
-  color: #555; /* Softer color for the paragraph */
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .service {
+      width: 100%;
+      margin-bottom: 20px;
+  }
+}
+
+
 
 
 .contact-section {
