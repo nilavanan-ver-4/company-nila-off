@@ -35,7 +35,7 @@
 
 /* Button to open modal */
 .start-project-btn {
-    background-color: #ff4081;
+    background-color: #407cff;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -108,7 +108,7 @@
   
   .cancel-btn1, .enroll-btn {
     background-color: #dfdad8;
-    
+    border: 2px solid red;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
@@ -116,7 +116,8 @@
   }
   
   .cancel-btn1:hover {
-    background-color: #e03737;
+    background-color: #f70505;
+    color: #000000;
     z-index: 2;
   }
   

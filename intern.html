@@ -58,14 +58,17 @@
                 <label class="label" for="tech">Select Tech</label>
                 <select class="select" id="tech" name="tech">
                     <option value="">Select Tech</option>
-                    <option value="html">HTML</option>
-                    <option value="css">CSS</option>
-                    <option value="javascript">JavaScript</option>
+                    <option value="frontend">Frontend</option>
+                    <option value="fullstack-web">Fullstack Web</option>
+                    <option value="machine-learning">Machine Learning</option>
+                    <option value="deep-learning">Deep Learning</option>
+                    <option value="big-data">Big Data</option>
+
                 </select>
 
-                <label class="label" for="domain">Select Domain</label>
-                <select  class="select" id="domain" name="domain">
-                    <option value="">Select Domain</option>
+                <label class="label" for="level">Select level</label>
+                <select  class="select" id="level" name="level">
+                    <option value="">Select level</option>
                 </select>
 
                 <label class="label" for="project">Select Project</label>
@@ -90,88 +93,141 @@
         </div>
     </div>
 
+
+    
+
     <script>
         const techSelect = document.getElementById('tech');
-        const domainSelect = document.getElementById('domain');
+        const levelSelect = document.getElementById('level');
         const projectSelect = document.getElementById('project');
         const pdfLink = document.getElementById('pdfLink');
         const pdfDescriptionText = document.getElementById('pdfDescriptionText');
         const applyLink = document.getElementById('applyLink');
         const applyLinkContainer = document.querySelector('.apply-link');
 
-        // Define domains, projects, corresponding PDFs, and apply links based on selected tech
+        // Define levels, projects, corresponding PDFs, and apply links based on selected tech
         const data = {
-            "html": {
-                domains: ["Web Development"],
-                projects: {
-                    "Web Development": {
-                        "Blogging Application": { pdf: "pdfs/blogging-application.pdf", apply: "https://apply-for-blogging.com" },
-                        "Portfolio Website": { pdf: "pdfs/portfolio-website.pdf", apply: "https://apply-for-portfolio.com" }
-                    }
-                }
+    "frontend": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Blogging Application": { pdf: "pdfs/blogging-application.pdf", apply: "https://apply-for-blogging.com" },
+                "Portfolio Website": { pdf: "pdfs/portfolio-website.pdf", apply: "https://apply-for-portfolio.com" }
             },
-            "css": {
-                domains: ["Web Development", "UI/UX Design"],
-                projects: {
-                    "Web Development": {
-                        "Landing Page": { pdf: "pdfs/landing-page.pdf", apply: "https://apply-for-landingpage.com" },
-                        "Responsive Website": { pdf: "pdfs/responsive-website.pdf", apply: "https://apply-for-responsive.com" }
-                    },
-                    "UI/UX Design": {
-                        "Mobile App Mockup": { pdf: "pdfs/mobile-app-mockup.pdf", apply: "https://apply-for-mobileapp.com" },
-                        "Website Redesign": { pdf: "pdfs/website-redesign.pdf", apply: "https://apply-for-redesign.com" }
-                    }
-                }
+            "Moderate": {
+                "Landing Page": { pdf: "pdfs/landing-page.pdf", apply: "https://apply-for-landingpage.com" },
+                "Responsive Website": { pdf: "pdfs/responsive-website.pdf", apply: "https://apply-for-responsive.com" }
             },
-            "javascript": {
-                domains: ["Web Development", "AI/ML"],
-                projects: {
-                    "Web Development": {
-                        "Single Page Application": { pdf: "pdfs/single-page-application.pdf", apply: "https://apply-for-spa.com" },
-                        "E-commerce Website": { pdf: "pdfs/e-commerce-website.pdf", apply: "https://apply-for-ecommerce.com" }
-                    },
-                    "AI/ML": {
-                        "Data Visualization Tool": { pdf: "pdfs/data-visualization.pdf", apply: "https://apply-for-dataviz.com" },
-                        "Chatbot Application": { pdf: "pdfs/chatbot-application.pdf", apply: "https://apply-for-chatbot.com" }
-                    }
-                }
+            "Advanced": {
+                "Single Page Application": { pdf: "pdfs/single-page-application.pdf", apply: "https://apply-for-spa.com" },
+                "E-commerce Website": { pdf: "pdfs/e-commerce-website.pdf", apply: "https://apply-for-ecommerce.com" }
             }
-        };
+        }
+    },
+    "fullstack-web": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Mobile App Mockup": { pdf: "pdfs/mobile-app-mockup.pdf", apply: "https://apply-for-mobileapp.com" },
+                "Website Redesign": { pdf: "pdfs/website-redesign.pdf", apply: "https://apply-for-redesign.com" }
+            },
+            "Moderate": {
+                "Landing Page": { pdf: "pdfs/landing-page.pdf", apply: "https://apply-for-landingpage.com" },
+                "Responsive Website": { pdf: "pdfs/responsive-website.pdf", apply: "https://apply-for-responsive.com" }
+            },
+            "Advanced": {
+                "Single Page Application": { pdf: "pdfs/single-page-application.pdf", apply: "https://apply-for-spa.com" },
+                "E-commerce Website": { pdf: "pdfs/e-commerce-website.pdf", apply: "https://apply-for-ecommerce.com" }
+            }
+        }
+    },
+    "machine-learning": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Data Visualization Tool": { pdf: "pdfs/data-visualization.pdf", apply: "https://apply-for-dataviz.com" },
+                "Chatbot Application": { pdf: "pdfs/chatbot-application.pdf", apply: "https://apply-for-chatbot.com" }
+            },
+            "Moderate": {
+                "Single Page Application": { pdf: "pdfs/single-page-application.pdf", apply: "https://apply-for-spa.com" },
+                "E-commerce Website": { pdf: "pdfs/e-commerce-website.pdf", apply: "https://apply-for-ecommerce.com" }
+            },
+            "Advanced": {
+                "Data Visualization Tool": { pdf: "pdfs/data-visualization.pdf", apply: "https://apply-for-dataviz.com" },
+                "Chatbot Application": { pdf: "pdfs/chatbot-application.pdf", apply: "https://apply-for-chatbot.com" }
+            }
+        }
+    },
+    "deep-learning": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Image Recognition": { pdf: "pdfs/image-recognition.pdf", apply: "https://apply-for-imagerecognition.com" },
+                "Text Classification": { pdf: "pdfs/text-classification.pdf", apply: "https://apply-for-textclassification.com" }
+            },
+            "Moderate": {
+                "Neural Network Training": { pdf: "pdfs/neural-network.pdf", apply: "https://apply-for-neuralnetwork.com" },
+                "Speech Recognition": { pdf: "pdfs/speech-recognition.pdf", apply: "https://apply-for-speechrecognition.com" }
+            },
+            "Advanced": {
+                "Self-driving Car Simulation": { pdf: "pdfs/self-driving-car.pdf", apply: "https://apply-for-selfdriving.com" },
+                "Natural Language Processing (NLP)": { pdf: "pdfs/nlp.pdf", apply: "https://apply-for-nlp.com" }
+            }
+        }
+    },
+    "big-data": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Data Cleaning Tool": { pdf: "pdfs/data-cleaning.pdf", apply: "https://apply-for-datacleaning.com" },
+                "Batch Processing Pipeline": { pdf: "pdfs/batch-processing.pdf", apply: "https://apply-for-batchprocessing.com" }
+            },
+            "Moderate": {
+                "Real-time Data Processing": { pdf: "pdfs/real-time-processing.pdf", apply: "https://apply-for-realtime.com" },
+                "Data Analytics Platform": { pdf: "pdfs/data-analytics.pdf", apply: "https://apply-for-dataanalytics.com" }
+            },
+            "Advanced": {
+                "Big Data Streaming": { pdf: "pdfs/bigdata-streaming.pdf", apply: "https://apply-for-bigdatastreaming.com" },
+                "Machine Learning on Big Data": { pdf: "pdfs/ml-on-bigdata.pdf", apply: "https://apply-for-ml-bigdata.com" }
+            }
+        }
+    }
+};
 
         // Event listener for the 'tech' selection
         techSelect.addEventListener('change', function() {
             const selectedTech = techSelect.value;
 
-            // Clear previous options in domain and project selects
-            domainSelect.innerHTML = '<option value="">Select Domain</option>';
+            // Clear previous options in level and project selects
+            levelSelect.innerHTML = '<option value="">Select level</option>';
             projectSelect.innerHTML = '<option value="">Select Project</option>';
             pdfDescriptionText.style.display = 'none';
             applyLinkContainer.style.display = 'none';
 
             if (selectedTech) {
-                // Populate the domains based on the selected tech
-                data[selectedTech].domains.forEach(domain => {
+                // Populate the levels based on the selected tech
+                data[selectedTech].levels.forEach(level => {
                     const option = document.createElement('option');
-                    option.value = domain;
-                    option.textContent = domain;
-                    domainSelect.appendChild(option);
+                    option.value = level;
+                    option.textContent = level;
+                    levelSelect.appendChild(option);
                 });
             }
         });
 
-        // Event listener for the 'domain' selection
-        domainSelect.addEventListener('change', function() {
+        // Event listener for the 'level' selection
+        levelSelect.addEventListener('change', function() {
             const selectedTech = techSelect.value;
-            const selectedDomain = domainSelect.value;
+            const selectedlevel = levelSelect.value;
 
             // Clear previous options in project select
             projectSelect.innerHTML = '<option value="">Select Project</option>';
             pdfDescriptionText.style.display = 'none';
             applyLinkContainer.style.display = 'none';
 
-            if (selectedDomain && data[selectedTech].projects[selectedDomain]) {
-                // Populate the projects based on the selected tech and domain
-                const projects = data[selectedTech].projects[selectedDomain];
+            if (selectedlevel && data[selectedTech].projects[selectedlevel]) {
+                // Populate the projects based on the selected tech and level
+                const projects = data[selectedTech].projects[selectedlevel];
                 for (let project in projects) {
                     const option = document.createElement('option');
                     option.value = project;
@@ -184,11 +240,11 @@
         // Event listener for the 'project' selection
         projectSelect.addEventListener('change', function() {
             const selectedTech = techSelect.value;
-            const selectedDomain = domainSelect.value;
+            const selectedlevel = levelSelect.value;
             const selectedProject = projectSelect.value;
 
-            if (selectedProject && data[selectedTech].projects[selectedDomain][selectedProject]) {
-                const projectDetails = data[selectedTech].projects[selectedDomain][selectedProject];
+            if (selectedProject && data[selectedTech].projects[selectedlevel][selectedProject]) {
+                const projectDetails = data[selectedTech].projects[selectedlevel][selectedProject];
                 const pdfPath = projectDetails.pdf;
                 const applyUrl = projectDetails.apply;
 
@@ -225,14 +281,17 @@
             <label class="label" for="submissionTech">Select Tech</label>
             <select class="select" id="submissionTech" name="tech">
                 <option value="">Select Tech</option>
-                <option value="html">HTML</option>
-                <option value="css">CSS</option>
-                <option value="javascript">JavaScript</option>
+                <option value="frontend">Frontend</option>
+                <option value="fullstack-web">Fullstack Web</option>
+                <option value="machine-learning">Machine Learning</option>
+                <option value="deep-learning">Deep Learning</option>
+                <option value="big-data">Big Data</option>
+
             </select>
 
-            <label class="label" for="submissionDomain">Select Domain</label>
-            <select class="select" id="submissionDomain" name="domain">
-                <option value="">Select Domain</option>
+            <label class="label" for="submissionlevel">Select level</label>
+            <select class="select" id="submissionlevel" name="level">
+                <option value="">Select level</option>
             </select>
 
             <label class="label" for="submissionProject">Select Project</label>
@@ -259,35 +318,100 @@
     const cancelSubmissionBtn = submissionModal.querySelector('.cancel-btn1');
     
     const submissionTechSelect = document.getElementById('submissionTech');
-    const submissionDomainSelect = document.getElementById('submissionDomain');
+    const submissionlevelSelect = document.getElementById('submissionlevel');
     const submissionProjectSelect = document.getElementById('submissionProject');
     const submitLink = document.getElementById('submitLink');
     const submitLinkContainer = document.querySelector('.submit-link');
 
-    // Define domains and projects based on selected tech for submission modal
+    // Define levels and projects based on selected tech for submission modal
     const submissionData = {
-        "html": {
-            domains: ["Web Development"],
-            projects: {
-                "Web Development": ["Blogging Application", "Portfolio Website"]
-            }
-        },
-        "css": {
-            domains: ["Web Development", "UI/UX Design"],
-            projects: {
-                "Web Development": ["Landing Page", "Responsive Website"],
-                "UI/UX Design": ["Mobile App Mockup", "Website Redesign"]
-            }
-        },
-        "javascript": {
-            domains: ["Web Development", "AI/ML"],
-            projects: {
-                "Web Development": ["Single Page Application", "E-commerce Website"],
-                "AI/ML": ["Data Visualization Tool", "Chatbot Application"]
+    "frontend": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Blogging Application": { submit: "https://submit-blogging-application.com" },
+                "Portfolio Website": { submit: "https://submit-portfolio-website.com" }
+            },
+            "Moderate": {
+                "Landing Page": { submit: "https://submit-landing-page.com" },
+                "Responsive Website": { submit: "https://submit-responsive-website.com" }
+            },
+            "Advanced": {
+                "Single Page Application": { submit: "https://submit-single-page-application.com" },
+                "E-commerce Website": { submit: "https://submit-ecommerce-website.com" }
             }
         }
-    };
-
+    },
+    "fullstack-web": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Mobile App Mockup": { submit: "https://submit-mobile-app-mockup.com" },
+                "Website Redesign": { submit: "https://submit-website-redesign.com" }
+            },
+            "Moderate": {
+                "Landing Page": { submit: "https://submit-landing-page.com" },
+                "Responsive Website": { submit: "https://submit-responsive-website.com" }
+            },
+            "Advanced": {
+                "Single Page Application": { submit: "https://submit-single-page-application.com" },
+                "E-commerce Website": { submit: "https://submit-ecommerce-website.com" }
+            }
+        }
+    },
+    "machine-learning": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Data Visualization Tool": { submit: "https://submit-data-visualization.com" },
+                "Chatbot Application": { submit: "https://submit-chatbot-application.com" }
+            },
+            "Moderate": {
+                "Recommendation System": { submit: "https://submit-recommendation-system.com" },
+                "Spam Classifier": { submit: "https://submit-spam-classifier.com" }
+            },
+            "Advanced": {
+                "Image Recognition": { submit: "https://submit-image-recognition.com" },
+                "Speech Recognition": { submit: "https://submit-speech-recognition.com" }
+            }
+        }
+    },
+    "deep-learning": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Image Classifier": { submit: "https://submit-image-classifier.com" },
+                "Text Generation": { submit: "https://submit-text-generation.com" }
+            },
+            "Moderate": {
+                "Neural Network Model": { submit: "https://submit-neural-network.com" },
+                "GANs Project": { submit: "https://submit-gans-project.com" }
+            },
+            "Advanced": {
+                "Self-driving Car": { submit: "https://submit-self-driving-car.com" },
+                "NLP Model": { submit: "https://submit-nlp-model.com" }
+            }
+        }
+    },
+    "big-data": {
+        levels: ["Basic", "Moderate", "Advanced"],
+        projects: {
+            "Basic": {
+                "Data Cleaning": { submit: "https://submit-data-cleaning.com" },
+                "Batch Processing": { submit: "https://submit-batch-processing.com" }
+            },
+            "Moderate": {
+                "Real-time Processing": { submit: "https://submit-real-time-processing.com" },
+                "Data Analytics": { submit: "https://submit-data-analytics.com" }
+            },
+            "Advanced": {
+                "Big Data Streaming": { submit: "https://submit-big-data-streaming.com" },
+                "Machine Learning on Big Data": { submit: "https://submit-ml-big-data.com" }
+            }
+        }
+    }
+};
+ 
     // Open the submission modal
     openSubmissionModalBtn.addEventListener("click", function() {
         submissionModal.style.display = "block";
@@ -323,58 +447,66 @@
         submitLink.textContent = 'No Project Selected'; // Reset the description text
     }
 
-    // Event listener for the 'tech' selection in submission form
-    submissionTechSelect.addEventListener('change', function() {
-        const selectedTech = submissionTechSelect.value;
+   // Event listener for the 'tech' selection
+submissionTechSelect.addEventListener('change', function() {
+    const selectedTech = submissionTechSelect.value;
 
-        // Clear previous options in domain and project selects
-        submissionDomainSelect.innerHTML = '<option value="">Select Domain</option>';
-        submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
-        submitLinkContainer.style.display = 'none';
+    // Clear previous options in level and project selects
+    submissionlevelSelect.innerHTML = '<option value="">Select level</option>';
+    submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
+    submitLinkContainer.style.display = 'none'; // Hide the submission link container
 
-        if (selectedTech) {
-            // Populate the domains based on the selected tech
-            submissionData[selectedTech].domains.forEach(domain => {
-                const option = document.createElement('option');
-                option.value = domain;
-                option.textContent = domain;
-                submissionDomainSelect.appendChild(option);
-            });
+    if (selectedTech) {
+        // Populate the levels based on the selected tech
+        submissionData[selectedTech].levels.forEach(level => {
+            const option = document.createElement('option');
+            option.value = level;
+            option.textContent = level;
+            submissionlevelSelect.appendChild(option);
+        });
+    }
+});
+
+// Event listener for the 'level' selection
+submissionlevelSelect.addEventListener('change', function() {
+    const selectedTech = submissionTechSelect.value;
+    const selectedlevel = submissionlevelSelect.value;
+
+    // Clear previous options in project select
+    submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
+    submitLinkContainer.style.display = 'none'; // Hide the submission link container
+
+    if (selectedlevel && submissionData[selectedTech].projects[selectedlevel]) {
+        // Populate the projects based on the selected tech and level
+        const projects = submissionData[selectedTech].projects[selectedlevel];
+        for (let project in projects) {
+            const option = document.createElement('option');
+            option.value = project;
+            option.textContent = project;
+            submissionProjectSelect.appendChild(option);
         }
-    });
+    }
+});
 
-    // Event listener for the 'domain' selection in submission form
-    submissionDomainSelect.addEventListener('change', function() {
-        const selectedTech = submissionTechSelect.value;
-        const selectedDomain = submissionDomainSelect.value;
+// Event listener for the 'project' selection
+submissionProjectSelect.addEventListener('change', function() {
+    const selectedTech = submissionTechSelect.value;
+    const selectedlevel = submissionlevelSelect.value;
+    const selectedProject = submissionProjectSelect.value;
 
-        // Clear previous options in project select
-        submissionProjectSelect.innerHTML = '<option value="">Select Project</option>';
-        submitLinkContainer.style.display = 'none';
+    if (selectedProject && submissionData[selectedTech].projects[selectedlevel][selectedProject]) {
+        const projectDetails = submissionData[selectedTech].projects[selectedlevel][selectedProject];
+        const submitUrl = projectDetails.submit;
 
-        if (selectedDomain && submissionData[selectedTech].projects[selectedDomain]) {
-            // Populate the projects based on the selected tech and domain
-            submissionData[selectedTech].projects[selectedDomain].forEach(project => {
-                const option = document.createElement('option');
-                option.value = project;
-                option.textContent = project;
-                submissionProjectSelect.appendChild(option);
-            });
-        }
-    });
+        // Update the submit link
+        submitLink.href = submitUrl;
+        submitLink.textContent = `Submit ${selectedProject}`;
+        submitLinkContainer.style.display = 'block'; // Show the submission link container
+    } else {
+        submitLinkContainer.style.display = 'none'; // Hide the submission link container if no project is selected
+    }
+});
 
-    // Event listener for the 'project' selection in submission form
-    submissionProjectSelect.addEventListener('change', function() {
-        const selectedProject = submissionProjectSelect.value;
-
-        if (selectedProject) {
-            submitLink.href = `/submit/${selectedProject.toLowerCase().replace(/ /g, "-")}`; // Construct dynamic submit link
-            submitLink.textContent = `Submit ${selectedProject}`;
-            submitLinkContainer.style.display = 'block'; // Show submit link
-        } else {
-            submitLinkContainer.style.display = 'none';
-        }
-    });
 
 </script>
 </div>
