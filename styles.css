@@ -543,6 +543,7 @@ section p {
 @media (max-width: 768px) {
   .banner {
       height: 350px; /* Reduce height for smaller screens */
+      margin-top: 300px;
   }
 
   .banner h1 {
@@ -1443,7 +1444,7 @@ select {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media screen and (max-width: 640px) {
   .service {
       width: 100%;
       margin-bottom: 20px;
