@@ -1,0 +1,10 @@
+# Ignore specific HTML files
+internship.html
+Client.html
+new_project.html
+# Ignore specific JavaScript and CSS files
+temp.js
+temp.css
+signin.html
+signup.html
+
