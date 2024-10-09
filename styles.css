@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
-*{
+/* *{
     margin: 0px;
     padding: 0px;
 }
@@ -9,8 +9,7 @@ body {
   background: #fff;
   
   background-size: 200px 200px;
-  /* animation: disco 5s ease-in-out ;*/
-}
+  /* animation: disco 5s ease-in-out ;*
 
 .header {
   position: fixed;
@@ -35,7 +34,7 @@ body {
   font-size: 14px;
 }
 .header .search-bar i {
-  /* background-color: #003f7f; */
+  /* background-color: #003f7f; *
   margin-right: 10px;
   padding: 11px;
   border: none;
@@ -104,7 +103,7 @@ canvas {
    
 }
 
-/*Sign Up*/
+/*Sign Up*
 .form-container{
     position: absolute;
     margin-left: 70%;
@@ -437,147 +436,11 @@ section p {
     font-size: 10px;
 }
 
-}
+} */
 /* Banner Styles */
 
 /* /* General styles for alignment */
-.align {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60vh;
-  background-color: white;
-} */
 
-/* Banner section */
-.banner {
-  position: relative;
-  width: 100%;
-
-  display: block;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-top:;
-}
-
-.banner-content {
-  z-index: 2; /* Makes sure the content stays on top of the background */
-}
-
-.banner h1 {
-  font-size: 48px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  animation: fadeInDown 1s ease-in-out;
-}
-
-.banner p {
-  font-size: 20px;
-  line-height: 1.6;
-  margin-bottom: 0px;
-  animation: fadeInUp 1.5s ease-in-out;
-}
-
-/* Button styles */
-.btn-primary {
-  display: inline-block;
-  padding: 12px 30px;
-  font-size: 18px;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 30px;
-  text-transform: uppercase;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 2s ease-in-out;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.4);
-}
-
-/* Animations */
-@keyframes fadeInDown {
-  from {
-      opacity: 0;
-      transform: translateY(-20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
-
-}
-
-@keyframes fadeIn {
-  from {
-      opacity: 0;
-      transform: scale(0.9);
-  }
-  to {
-      opacity: 1;
-      transform: scale(1);
-  }
-}
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-  .banner {
-      height: 350px; /* Reduce height for smaller screens */
-      margin-top: 300px;
-  }
-
-  .banner h1 {
-      font-size: 28px; /* Further reduce font size */
-  }
-
-  .banner p {
-      font-size: 14px; /* Adjust text size */
-  }
-
-  .btn-primary {
-      padding: 8px 20px; /* Adjust button padding */
-      font-size: 14px; /* Adjust button text size */
-  }
-}
-
-@media (max-width: 480px) {
-  .banner {
-      height: 300px; /* Adjust for very small screens */
-  }
-
-  .banner h1 {
-      font-size: 24px; /* Further reduce font size */
-  }
-
-  .banner p {
-      font-size: 12px; /* Adjust text size */
-  }
-
-  .btn-primary {
-      padding: 6px 18px; /* Adjust button padding */
-      font-size: 12px; /* Adjust button text size */
-  }
-}
 
 
 /* Business Section */
@@ -681,7 +544,7 @@ section p {
   
     }
   
-    
+ /*    
 .circles{
     position: absolute;
     top: 0;
@@ -796,10 +659,10 @@ section p {
         border-radius: 50%;
     }
 
-}
+} */
 
   
-  }
+
   
   
   @media only screen and (max-width: 768px) {
